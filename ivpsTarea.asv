@@ -1,4 +1,4 @@
-function [t,y] = ivps(f,t0,y0,h,tf,metodo)
+function [t,y] = ivps(f,t0,yz0,h,tf,metodo)
  %solucionador de problemas con valor inicial
  % y' = f(t,y)   y(0)=y0
  
@@ -17,11 +17,14 @@ function [t,y] = ivps(f,t0,y0,h,tf,metodo)
     end
     
     t= t0:h:tf;
-    y= zeros(size(t));
     n = length(t);
-    y(1)= y0;
+    y= zeros(length(yz0),n);
+    
+    y(:,1)= yz0(1);
+    z(:,1)= yz0(2);
     for i=1:1:n-1
-        y(i+1) = y(i) + trapezoide(f,t(i),y(i),h)*h; 
+        y(:,i+1) = y(:,i) + solver(f,t(i),y(:,i),h)*h; 
+        z(:,i+1) = z(:,i) + solver(f,t(i),y(:,i),h)*h; 
     end
 
 end
