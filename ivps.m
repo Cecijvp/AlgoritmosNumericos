@@ -12,6 +12,9 @@ function [t,y] = ivps(f,t0,y0,h,tf,metodo)
         case 'trapezoide'
             solver = @trapezoide; 
             
+        case 'rk4'
+            solver = @trapezoide; 
+            
         otherwise
             error('Método desconocido');
     end
