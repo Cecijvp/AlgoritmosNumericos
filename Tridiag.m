@@ -9,7 +9,7 @@ function x = Tridiag(e,f,g,r)
     end
     %backsubstitution
     x(n)= r(n)/f(n);
-    for k=n-1;-1:1
+    for k=n-1:-1:1
         x(k) = (r(k)-g(k)*x(k+1))/f(k);
     end
     
