@@ -1,10 +1,10 @@
 function [x,i,min] = newtownRaphsonOptimizacion(f,a,b)
 
-fsym = sym(f) % convierte la función f a simbolica para poder derivar
-    dfs = diff(fsym) % deriva simbolicamente
-    df= matlabFunction(dfs)
-    dfs2 = diff(dfs)
-    df2 = matlabFunction(dfs2)
+fsym = sym(f); % convierte la función f a simbolica para poder derivar
+    dfs = diff(fsym); % deriva simbolicamente
+    df= matlabFunction(dfs);
+    dfs2 = diff(dfs);
+    df2 = matlabFunction(dfs2);
     
  x= (b+a)/2;
     

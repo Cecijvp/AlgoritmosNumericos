@@ -1,8 +1,8 @@
 function [x,i] = newtonRaphson(f,a,b)
 
-    fsym = sym(f) % convierte la función f a simbolica para poder derivar
-    dfs = diff(fsym) % deriva simbolicamente
-    df= matlabFunction(dfs)  % lo regresa a una función que pueda usar despues
+    fsym = sym(f); % convierte la función f a simbolica para poder derivar
+    dfs = diff(fsym); % deriva simbolicamente
+    df= matlabFunction(dfs);  % lo regresa a una función que pueda usar despues
     
     x= (b+a)/2;
     
